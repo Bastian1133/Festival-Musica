@@ -7,7 +7,7 @@
   "scripts": {
     "sass": "sass --watch src/scss:build/css",
     "dev": "gulp",
-    "build": "npm run sass"
+    "build": "gulp build"
   },
   "keywords": [
     "SASS",
