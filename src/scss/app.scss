@@ -1,0 +1,5 @@
+/*@use 'base/variables' as v; // Importar archivo _variables.scss, usar as para no tener que escribir varaibles.$var y se define el prefijo, en este caso v
+@forward 'base/normalize'; // Se usa cuando se req  uiere todo el contenido de la hoja de estilos pero no se quieren variables, no soporta namespaces
+*/
+@forward 'base';
+@forward 'layout'

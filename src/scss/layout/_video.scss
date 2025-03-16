@@ -1,0 +1,50 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+@use 'sass:color';
+
+.video {
+    position: relative; // el elemento padre debe tener posicion relativa
+    min-height: 50rem;
+    max-height: 70rem; // altura maxima para que el video y degradado no queden muy grandes en pantallas grandes
+    overflow: hidden; // oculta el contenido que se desborda al sobrepasar el max-height
+    .overlay {
+        position: absolute; // los hijos posicion absoluta para poder superponer elementos
+        background: linear-gradient(
+            270deg,
+            rgba(v.$morado, 60%), /* rgba para usar canal alfa (transparencias) (color, transparencia) */
+            rgba(color.adjust(v.$morado,$lightness:-30%), 90%) /* color.adjust oscurece el color */
+        );
+        //bottom: 50%; // mueve la altura del elemento a la mitad del elemento padre
+        inset: 0; // Para poscionar el degradado en todo el video
+        
+        // Agregar display flex para centrar el h1 y p hijos
+        display: flex;
+        align-items: center;
+    }
+
+    video {
+        display: block; // para alinear con el degradado
+        width: auto;
+        @include m.desktop {
+            width: 100%;
+        }
+    }
+}
+
+.contenido-video {
+    z-index: 10; // para posicionar el elemento por delante del overlay, y en este caso poder seleccionar el texto del p y h1
+    h2 {
+        color: v.$blanco;
+        font-size: 7rem;
+        margin: 0;
+    }
+    p {
+        background-color: v.$rosa;
+        display: inline-block; // display para acortar el tamaño del p y poder aplicar margin
+        padding: 1rem 2rem;
+        color: v.$blanco;
+        font-size: 2.4rem;
+        font-weight: 700;
+        margin: 0;
+    }
+}
