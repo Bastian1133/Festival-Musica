@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "sass": "sass --watch src/scss:build/css",
+    "sass": "sass src/scss:build/css",
     "dev": "gulp",
     "build": "npm run sass"
   },
